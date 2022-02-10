@@ -3,10 +3,9 @@ var path = require('path');
 
 const getFilesFromPath = async (req, res, next)=>{
     const dirPath = req.body.url;
-    let data =[];
-    let fileNames = [];
+   
     const isPathExist = checkPathExistance(dirPath);
-    if(isDirectory(dirPath)){
+    if(isDirectory(dirPath) && isPathExist){
         readDirectory();
       
     }else{
@@ -47,6 +46,4 @@ const isDirectory = (dirPath)=>{
 }
 
 
-export{
-    getFilesFromPath
-}
+module.exports = {getFilesFromPath};
